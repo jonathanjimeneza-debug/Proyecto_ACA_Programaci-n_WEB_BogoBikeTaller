@@ -1,0 +1,564 @@
+/* ==========================================================================
+   BOGOBIKE TALLER - CONTACTO 
+   ========================================================================== */
+
+/* ---------- Botones---------- */
+.pagina-contacto .boton {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font: 700 15px var(--font-heading);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.boton-principal {
+    background: var(--accent-red);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(229, 57, 53, .3);
+}
+
+.boton-principal:hover {
+    background: #D32F2F;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(229, 57, 53, .5);
+}
+
+.boton-principal:active {
+    transform: none;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--linea);
+    background:
+        radial-gradient(900px 400px at 85% 10%, rgba(255, 195, 0, 0.10), transparent 60%),
+        var(--bg-main);
+}
+
+.hero-inner {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: 80px 20px 70px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6.5vw, 72px);
+    font-weight: 900;
+    line-height: 1.02;
+    max-width: 14ch;
+}
+
+.hero h1 .linea {
+    display: block;
+    overflow: hidden;
+}
+
+.hero h1 .linea>span {
+    display: block;
+    animation: subir .9s cubic-bezier(.2, .8, .2, 1) both;
+}
+
+.hero h1 .linea:nth-child(2)>span {
+    animation-delay: .12s;
+    color: var(--accent-yellow);
+}
+
+.hero h1 .linea:nth-child(3)>span {
+    animation-delay: .24s;
+}
+
+.hero p {
+    max-width: 52ch;
+    margin: 26px 0 32px;
+    color: var(--text-soft);
+    font-size: 17px;
+    animation: aparecer .8s .5s both;
+}
+
+.hero-acciones {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+    animation: aparecer .8s .65s both;
+}
+
+.estado {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--bg-card);
+    border: 1px solid var(--linea);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.estado .punto {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--text-muted);
+}
+
+.estado.abierto .punto {
+    background: var(--ok);
+    animation: pulso 1.8s infinite;
+}
+
+.estado.cerrado .punto {
+    background: var(--accent-red);
+}
+
+.plato {
+    position: absolute;
+    right: -120px;
+    top: 50%;
+    width: min(620px, 80vw);
+    aspect-ratio: 1;
+    transform: translateY(-50%);
+    color: var(--accent-yellow);
+    opacity: .16;
+    animation: girar 40s linear infinite;
+    pointer-events: none;
+}
+
+/* ---------- Contenido y títulos ---------- */
+.contenido-principal {
+    max-width: var(--ancho);
+    margin: 0 auto;
+    padding: 60px 20px 20px;
+}
+
+.titulo-seccion {
+    font-size: clamp(26px, 4vw, 36px);
+    font-weight: 800;
+    color: var(--accent-yellow);
+    border-left: 5px solid var(--accent-red);
+    padding-left: 18px;
+}
+
+.subtitulo-seccion {
+    color: var(--text-soft);
+    margin: 12px 0 0 23px;
+    max-width: 60ch;
+}
+
+.bloque {
+    margin-top: 70px;
+}
+
+.info-contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+/* ---------- Tarjetas ---------- */
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--linea);
+    border-radius: 16px;
+    padding: 34px;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .55);
+}
+
+.card h3 {
+    font-size: 22px;
+    font-weight: 800;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--accent-red);
+    margin-bottom: 8px;
+}
+
+.card-formulario {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-formulario::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-yellow), var(--accent-red));
+}
+
+.card-formulario h3 {
+    border-bottom-color: var(--linea);
+}
+
+/* ---------- Datos de contacto ---------- */
+.lista-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lista-contacto li {
+    border-bottom: 1px solid var(--linea);
+}
+
+.lista-contacto li:last-child {
+    border-bottom: 0;
+}
+
+.dato {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 18px 8px;
+    margin: 0 -8px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: background-color .2s;
+}
+
+a.dato:hover {
+    background: rgba(255, 195, 0, .07);
+}
+
+.dato>div {
+    flex: 1;
+    min-width: 0;
+}
+
+.dato svg {
+    flex: none;
+    width: 24px;
+    height: 24px;
+    fill: var(--accent-yellow);
+    margin-top: 2px;
+}
+
+.dato strong {
+    display: block;
+    font-size: 12px;
+    color: var(--text-muted);
+    font-weight: 600;
+    letter-spacing: .4px;
+}
+
+.dato span {
+    color: #E8ECEE;
+    font-size: 15px;
+}
+
+.dato .nota {
+    display: block;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 2px;
+}
+
+.tabla-horario {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.tabla-horario td {
+    padding: 3px 0;
+    color: #E8ECEE;
+}
+
+.tabla-horario td:last-child {
+    text-align: right;
+}
+
+.tabla-horario tr.hoy td {
+    color: var(--accent-yellow);
+    font-weight: 700;
+}
+
+.tabla-horario tr.cerrado-dia td:last-child {
+    color: var(--text-muted);
+}
+
+/* ---------- Formulario ---------- */
+.formulario-estilo {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 22px;
+}
+
+.fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.campo label {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-soft);
+}
+
+.formulario-estilo input,
+.formulario-estilo select,
+.formulario-estilo textarea {
+    width: 100%;
+    background: var(--bg-field);
+    border: 1px solid rgba(255, 255, 255, .14);
+    padding: 13px 16px;
+    border-radius: 8px;
+    color: var(--text-main);
+    font: 400 15px var(--font-body);
+    transition: border-color .25s, box-shadow .25s, background-color .25s;
+}
+
+.formulario-estilo textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+.formulario-estilo ::placeholder {
+    color: rgba(255, 255, 255, .35);
+}
+
+.formulario-estilo input:focus,
+.formulario-estilo select:focus,
+.formulario-estilo textarea:focus {
+    outline: none;
+    border-color: var(--accent-yellow);
+    background: #161F24;
+    box-shadow: 0 0 0 4px rgba(255, 195, 0, .15);
+}
+
+.formulario-estilo input:user-invalid,
+.formulario-estilo textarea:user-invalid {
+    border-color: var(--accent-red);
+}
+
+.contador {
+    align-self: flex-end;
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: -10px;
+}
+
+.ayuda-envio {
+    font-size: 12.5px;
+    color: var(--text-muted);
+}
+
+/* Mensaje de éxito */
+.exito {
+    display: none;
+    text-align: center;
+    padding: 30px 10px;
+    animation: entrar .5s cubic-bezier(.2, .8, .2, 1);
+}
+
+.card-formulario.enviado .formulario-estilo {
+    display: none;
+}
+
+.card-formulario.enviado .exito {
+    display: block;
+}
+
+.exito svg {
+    width: 72px;
+    height: 72px;
+}
+
+.exito circle,
+.exito path {
+    fill: none;
+    stroke: var(--ok);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.exito circle {
+    stroke-dasharray: 160;
+    stroke-dashoffset: 160;
+    animation: trazo .7s .1s forwards;
+}
+
+.exito path {
+    stroke-dasharray: 40;
+    stroke-dashoffset: 40;
+    animation: trazo .4s .7s forwards;
+}
+
+.exito h4 {
+    font-size: 24px;
+    margin: 14px 0 8px;
+}
+
+.exito p {
+    color: var(--text-soft);
+    margin-bottom: 20px;
+}
+
+/* ---------- Mapa ---------- */
+.mapa {
+    margin-top: 28px;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--linea);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, .55);
+}
+
+.mapa iframe {
+    display: block;
+    width: 100%;
+    height: 360px;
+    border: 0;
+}
+
+/* ---------- FAQ ---------- */
+.faq {
+    margin-top: 28px;
+}
+
+/* ---------- Botón flotante de WhatsApp ---------- */
+.flotante-wa {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 90;
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #25D366;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .5);
+    transition: transform .2s;
+}
+
+.flotante-wa:hover {
+    transform: scale(1.08);
+}
+
+.flotante-wa svg {
+    width: 30px;
+    height: 30px;
+    fill: #fff;
+}
+
+.revelar {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s, transform .7s cubic-bezier(.2, .8, .2, 1);
+}
+
+.revelar.visible {
+    opacity: 1;
+    transform: none;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(105%);
+    }
+
+    to {
+        transform: none;
+    }
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pulso {
+    0% {
+        box-shadow: 0 0 0 0 rgba(67, 209, 122, .6);
+    }
+
+    100% {
+        box-shadow: 0 0 0 12px rgba(67, 209, 122, 0);
+    }
+}
+
+@keyframes girar {
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
+@keyframes trazo {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes entrar {
+    from {
+        opacity: 0;
+        transform: scale(.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+    .info-contacto-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plato {
+        right: -200px;
+        opacity: .1;
+    }
+}
+
+@media (max-width: 520px) {
+    .fila {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    .hero-inner {
+        padding: 56px 20px 50px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .revelar {
+        opacity: 1;
+        transform: none;
+    }
+
+    .exito circle,
+    .exito path {
+        stroke-dashoffset: 0;
+    }
+}
